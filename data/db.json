@@ -1,20 +1,20 @@
 {
   "data": [
     {
-      "todo": "take a shower",
+      "todo": "read a book",
       "id": 1
     },
     {
-      "todo": "breakfast",
+      "todo": "make a coffe",
       "id": 2
     },
     {
-      "todo": "make a coffe",
-      "id": 5
+      "todo": "jogging",
+      "id": 3
     },
     {
-      "todo": "code",
-      "id": 6
+      "todo": "feed a cat",
+      "id": 4
     }
   ]
 }
