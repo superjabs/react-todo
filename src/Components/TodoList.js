@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FormAdd from "./FormAdd";
 import axios from "axios";
 import ListItemTodo from "./ListItemTodo";
@@ -14,10 +14,10 @@ export default function TodoList() {
         setTodos(res.data);
       } catch (err) {}
     });
-  });
+  }, [todos]);
 
   // ADD TODO
-  function addTodo(todo) {
+  function saveTodo(todo) {
     return axios.post(url, todo);
   }
 
@@ -32,22 +32,29 @@ export default function TodoList() {
   }
 
   return (
-    <div className="pt-5">
-      <FormAdd addData={addTodo} />
+    <>
+      <h1 className="text-xl font-bold py-3 border-b-2 border-black">
+        react-todo🧾
+      </h1>
+      <FormAdd saveData={saveTodo} />
       <p className="pb-2 font-semibold">your list</p>
-      <ul>
-        {todos
-          .map((todo) => (
-            <ListItemTodo
-              deleteData={deleteTodo}
-              updateData={updateTodo}
-              todo={todo.todo}
-              key={todo.id}
-              id={todo.id}
-            />
-          ))
-          .reverse()}
-      </ul>
-    </div>
+      {todos.length > 0 ? (
+        <ul>
+          {todos
+            .map((todo) => (
+              <ListItemTodo
+                deleteData={deleteTodo}
+                updateData={updateTodo}
+                todo={todo.todo}
+                key={todo.id}
+                id={todo.id}
+              />
+            ))
+            .reverse()}
+        </ul>
+      ) : (
+        <p className="flex justify-center mt-10">no activity</p>
+      )}
+    </>
   );
 }
