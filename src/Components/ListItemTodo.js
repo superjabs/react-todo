@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MdDelete, MdCreate, MdCancel } from "react-icons/md";
 
 export default function ListItemTodo({ todo, id, deleteData, updateData }) {
