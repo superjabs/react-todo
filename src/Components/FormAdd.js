@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
-export default function FormAdd({ addData }) {
+export default function FormAdd({ saveData }) {
   const [initialTodo, setInitialTodo] = useState({ todo: "" });
 
   function changeHandler(e) {
@@ -12,14 +12,14 @@ export default function FormAdd({ addData }) {
     // add validation before submit notes
     if (initialTodo.todo !== "") {
       e.preventDefault();
-      addData(initialTodo);
+      saveData(initialTodo);
       setInitialTodo({ todo: "" });
     }
   }
 
   return (
-    <div className="pb-6">
-      <p className="pb-2 font-semibold">add new activity</p>
+    <div className="pt-3 pb-5">
+      <p className="pb-3 font-semibold">add new activity</p>
       <form
         action=""
         className="flex items-center justify-center"
